@@ -683,8 +683,8 @@ int main()
 	step_writer->writeModelToStream(stream, ifc_model);
 	ifc_model->clearIfcModel();
 
-	std::ofstream ofs(file_path, std::ofstream::out);
-	ofs << stream.str().c_str();
+	std::ofstream ofs(std::string(file_path.begin(), file_path.end()));
+	ofs << stream.str();
 	ofs.close();
 
 	return 0;
